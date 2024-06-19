@@ -1,9 +1,12 @@
-pipeline {   /* declarative */
+pipeline {
     agent any
+    triggers {
+        cron('H */2 * * *')
+    }
     stages {
         stage('Build') {
             steps {
-                bat 'C:/Jenkins/test.bat'
+                bat 'C:/Jenkins/test.bat' 
             }
         }
         stage('Test') {
@@ -21,5 +24,5 @@ pipeline {   /* declarative */
                 bat 'C:/Jenkins/test.bat'
             }
         }
-    }    
+    }
 }
